@@ -10,8 +10,6 @@
     }
     spl_autoload_register('loadClasse');
 
-    require '../entities/Toto.php';
-    require '../model/Database.php';
    
     $db = Database::DB();
 

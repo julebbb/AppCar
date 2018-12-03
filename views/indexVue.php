@@ -10,20 +10,25 @@
 
 ?>
     <div class="card" style="width: 18rem;">
-
+    <a href="#">
 <?php
      if ($key->getType() === "car") {
-       echo '<i class="fas fa-car card-img-top" style="'. $key->getColor() .'"></i>';
+       echo '<i class="fas fa-car card-img-top text-center" style="color:'. $key->getColor() .';"></i>';
+     } elseif ($key->getType() === "motorbike") {
+       echo '<i class="fas fa-motorcycle card-img-top text-center" style="color:'. $key->getColor() .';"></i>';
+       
+     }elseif ($key->getType() === "motorbike") {
+       echo '<i class="fas fa-truck card-img-top text-center" style="color:'. $key->getColor() .';"></i>';
+       
      }
  ?>
 
  
-  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+    <h5 class="card-title"><?php echo $key->getBrand() . " " . $key->getModel();?></h5>
+    <p class="card-text"></p>
+  </a>
+  <a href="">Modifier</a>
+  <a href="index.php?id=">Supprimer</a>
 </div>
 
 <?php
