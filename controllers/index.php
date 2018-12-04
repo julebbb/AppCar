@@ -18,7 +18,6 @@
     $data = $vehicleManager->getVehicles();
 
     //Prepare for add vehicle in manager
-    
     if (isset($_POST['color']) AND isset($_POST['type']) AND isset($_POST['brand']) AND isset($_POST['model']) 
     AND !empty($_POST['color']) AND !empty($_POST['type']) AND !empty($_POST['brand']) AND !empty($_POST['model'])) {
         //protected for html tags

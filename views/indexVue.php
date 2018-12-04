@@ -68,12 +68,13 @@
 
 
 <section class="row">
+    <h3 class="col-12 mb-2 mt-4">Tous les véhicules :</h3>
+
   <?php
    foreach ($data as $key) {
   ?>
     <div class="card col-4" style="width: 18rem;">
-    <h3>Tous les véhicules :</h3>
-    <a href="#">
+    <a href="/controller/details.php?id=<?php echo $key->getId();?>">
   <?php
      if ($key->getType() === "car") {
        echo '<i class="fas fa-car card-img-top text-center" style="color:'. $key->getColor() .';"></i>';
@@ -95,12 +96,7 @@
 <?php
 }?>
 
-<p>Pour les détails :</p>
-<ul>
-  <li>Infos du véhicule</li>
-  <li>lien pour modifier celui ci</li>
-  <li>bouton suppr</li>
-</ul>
+
 </section>
  <?php
    include("template/footer.php")
