@@ -45,10 +45,8 @@
                         $car['name'] = $name;
 
                         $createCar = new Car($car);
-                        
-                        echo "<pre>";
-                        print_r($createCar);
-                        echo "</pre>";
+                        $vehicleManager->add($createCar);
+                        header('Location: index.php');
                     }
                 }
 

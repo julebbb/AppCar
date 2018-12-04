@@ -66,9 +66,10 @@ class VehicleManager
      *
      * @param objet $vehicle
      */
-    public function add(objet $vehicle)
+    public function add( $vehicle)
     {
-        $query = $this->getDb()->prepare('INSERT INTO Vehicles(name, type, color, brand, door, wheel, model) VALUES (:name, :type, :color, :brand, :door, :wheel, :model)');
+        $query = $this->getDb()->prepare('INSERT INTO Vehicles(name, type, color, brand, door, wheel, model) 
+        VALUES (:name, :type, :color, :brand, :door, :wheel, :model)');
         $query->bindValue('name', $vehicle->getName(), PDO::PARAM_STR);
         $query->bindValue('type', $vehicle->getType(), PDO::PARAM_INT);
         $query->bindValue('color', $vehicle->getColor(), PDO::PARAM_INT);
@@ -94,7 +95,11 @@ class VehicleManager
      */
     public function edit(objet $vehicle)
     {
-        $query = $this->getDb()->prepare('UPDATE FROM Vehicles SET name = :name, type = :type, color = :color, brand = :brand, door = :door, wheel = :wheel, model = :model WHERE id = :id');
+        $query = $this->getDb()->prepare('UPDATE FROM Vehicles 
+        SET name = :name, type = :type, 
+        color = :color, brand = :brand, door = :door, 
+        wheel = :wheel, model = :model 
+        WHERE id = :id');
         $query->bindValue('id', $vehicle->getId(), PDO::PARAM_INT);
         $query->bindValue('name', $vehicle->getName(), PDO::PARAM_STR);
         $query->bindValue('type', $vehicle->getType(), PDO::PARAM_INT);
