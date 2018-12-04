@@ -74,7 +74,7 @@
    foreach ($data as $key) {
   ?>
     <div class="card col-4" style="width: 18rem;">
-    <a href="/controller/details.php?id=<?php echo $key->getId();?>">
+    <a href="details.php?id=<?php echo $key->getId();?>">
   <?php
      if ($key->getType() === "car") {
        echo '<i class="fas fa-car card-img-top text-center" style="color:'. $key->getColor() .';"></i>';
