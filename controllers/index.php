@@ -21,6 +21,7 @@
     
     if (isset($_POST['color']) AND isset($_POST['type']) AND isset($_POST['brand']) AND isset($_POST['model']) 
     AND !empty($_POST['color']) AND !empty($_POST['type']) AND !empty($_POST['brand']) AND !empty($_POST['model'])) {
+        //protected for html tags
         $color = strip_tags($_POST['color']);
         $type = strip_tags($_POST['type']);
         $brand = strip_tags($_POST['brand']);
@@ -54,9 +55,49 @@
             }
 
         } elseif ($type === "truck") {
-            # code...
+            echo 'miaou';
+            if (isset($_POST['wheel']) AND !empty($_POST['wheel'])) {
+                $wheel = (int) $_POST['wheel'];
+                
+                if ($wheel > 1 ) {
+                    $truck = array (
+                        "color" => $color,
+                        "type" => $type,
+                        "brand" => $brand,
+                        "model" => $model,
+                        "wheel" => $wheel
+                    );
+
+                    if (isset($_POST['surname']) AND !empty($_POST['surname'])) {
+                        $name = strip_tags($_POST['surname']);
+                        $truck['name'] = $name;
+
+                        $createTruck = new Truck($truck);
+                        $vehicleManager->add($createTruck);
+                        
+                        header('Location: index.php');
+                    }
+                }
+
+
+            }
         } elseif ($type === 'motorbike') {
-            # code...
+            $motorbike = array(
+                "color" => $color,
+                "type" => $type,
+                "brand" => $brand,
+                "model" => $model,
+            );
+
+            if (isset($_POST['surname']) AND !empty($_POST['surname'])) {
+                    $name = strip_tags($_POST['surname']);
+                    $motorbike['name'] = $name;
+
+                    $createMotorbike = new Motorbike($motorbike);
+                    $vehicleManager->add($createMotorbike);
+                    
+                    header('Location: index.php');
+            }
         }
 
     }
@@ -75,7 +116,7 @@
        
         $select = $_GET['select'];
     }
-    //préparation pour update
+    //Prepare update (not begin)
 
     //Prepare for delete vehicle
     if (isset($_GET['delete']) AND !empty($_GET['delete'])) {
@@ -85,10 +126,6 @@
             header('Location: index.php');
         }
     }
-
-    // echo "<pre>";
-    // print_r($info->getVehicles());
-    // echo "</pre>";
 
     include "../views/indexVue.php";
 

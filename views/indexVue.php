@@ -3,8 +3,10 @@
 ?>
 
 <section class="row">
-  <h3 class="col-12">Crée un véhicule : <?php echo $selectType;?></h3>
-  <form action="index.php" method="POST" class="col-6 p-5 border">
+
+  <!-- Form vehicle -->
+  <h3 class="col-12 text-center">Crée un véhicule :</h3>
+  <form action="index.php" method="POST" class="col-6 p-5 border text-center m-auto">
     <div class="form-group">
       <label for="type">Sélectionne ton véhicule : </label>
       <p class="text-info">Actuellement séléctionné : <?php echo $selectType;?></p>
@@ -42,8 +44,8 @@
     <?php if ( $select === "truck") { 
     ?> 
     <div class="form-group">
-      <label for="wheels">Nombre de roues :</label>
-      <input type="number" name="color">
+      <label for="wheel">Nombre de roues :</label>
+      <input type="number" name="wheel">
     </div>
     <?php
       }?>
@@ -65,11 +67,12 @@
 </section>
 
 
-<section>
+<section class="row">
   <?php
    foreach ($data as $key) {
   ?>
-    <div class="card" style="width: 18rem;">
+    <div class="card col-4" style="width: 18rem;">
+    <h3>Tous les véhicules :</h3>
     <a href="#">
   <?php
      if ($key->getType() === "car") {

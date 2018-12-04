@@ -1,3 +1,4 @@
+</main>
 <footer>
   <p>A footer if you need one</p>
 </footer>
