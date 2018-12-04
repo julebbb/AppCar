@@ -111,10 +111,10 @@ class VehicleManager
      *
      * @param objet $vehicle
      */
-    public function delete(objet $vehicle)
+    public function delete(int $id)
     {
         $query = $this->getDb()->prepare('DELETE FROM Vehicles WHERE id = :id');
-        $query->bindValue('id', $vehicle->getId(), PDO::PARAM_INT);
+        $query->bindValue('id', $id, PDO::PARAM_INT);
         $query->execute();
     }
 }
